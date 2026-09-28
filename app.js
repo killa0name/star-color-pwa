@@ -1,15 +1,14 @@
-const ASSET_BASE = "https://star-color-akmbmw0zl-henryle1.vercel.app";
 const pictures = [
-  { name: "Snowy Stars", key: "pictures/winter-01.png", file: `${ASSET_BASE}/pictures/winter-01.png` },
-  { name: "Snow Friend", key: "pictures/winter-02.png", file: `${ASSET_BASE}/pictures/winter-02.png` },
-  { name: "Sleigh Ride", key: "pictures/winter-03.png", file: `${ASSET_BASE}/pictures/winter-03.png` },
-  { name: "Star Magic", key: "pictures/winter-04.png", file: `${ASSET_BASE}/pictures/winter-04.png` },
-  { name: "Polar Bear", key: "pictures/winter-05.png", file: `${ASSET_BASE}/pictures/winter-05.png` },
-  { name: "Cozy Window", key: "pictures/winter-06.png", file: `${ASSET_BASE}/pictures/winter-06.png` },
-  { name: "Ice Skating", key: "pictures/winter-07.png", file: `${ASSET_BASE}/pictures/winter-07.png` },
-  { name: "Star Lantern", key: "pictures/winter-08.png", file: `${ASSET_BASE}/pictures/winter-08.png` },
-  { name: "Snow Deer", key: "pictures/winter-09.png", file: `${ASSET_BASE}/pictures/winter-09.png` },
-  { name: "Winter Party", key: "pictures/winter-10.png", file: `${ASSET_BASE}/pictures/winter-10.png` }
+  { name: "Snowy Stars", key: "pictures/winter-01.png", file: "pictures/winter-01.png" },
+  { name: "Snow Friend", key: "pictures/winter-02.png", file: "pictures/winter-02.png" },
+  { name: "Sleigh Ride", key: "pictures/winter-03.png", file: "pictures/winter-03.png" },
+  { name: "Star Magic", key: "pictures/winter-04.png", file: "pictures/winter-04.png" },
+  { name: "Polar Bear", key: "pictures/winter-05.png", file: "pictures/winter-05.png" },
+  { name: "Cozy Window", key: "pictures/winter-06.png", file: "pictures/winter-06.png" },
+  { name: "Ice Skating", key: "pictures/winter-07.png", file: "pictures/winter-07.png" },
+  { name: "Star Lantern", key: "pictures/winter-08.png", file: "pictures/winter-08.png" },
+  { name: "Snow Deer", key: "pictures/winter-09.png", file: "pictures/winter-09.png" },
+  { name: "Winter Party", key: "pictures/winter-10.png", file: "pictures/winter-10.png" }
 ];
 
 const quickColors = ["#ff3b30", "#ff9500", "#ffcc00", "#34c759", "#007aff"];
@@ -220,7 +219,6 @@ async function openPicture(index) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     await restoreSavedDrawing();
   };
-  lineArt.crossOrigin = "anonymous";
   lineArt.src = currentPicture.file;
   window.scrollTo({ top: 0, behavior: "instant" });
 }
