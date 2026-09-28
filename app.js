@@ -29,7 +29,12 @@ const pictures = [
   { name: "Cat with Flowers", key: "pictures/plush-cat-flowers.png", file: "pictures/plush-cat-flowers.png" },
   { name: "Cat with Fish", key: "pictures/plush-cat-fish.png", file: "pictures/plush-cat-fish.png" },
   { name: "Cat Dancing", key: "pictures/plush-cat-tambourine.png", file: "pictures/plush-cat-tambourine.png" },
-  { name: "Cat Painting", key: "pictures/plush-cat-artist.png", file: "pictures/plush-cat-artist.png" }
+  { name: "Cat Painting", key: "pictures/plush-cat-artist.png", file: "pictures/plush-cat-artist.png" },
+  { name: "Family Baking", key: "pictures/family-baking.svg", file: "pictures/family-baking.svg" },
+  { name: "Family Bedtime Story", key: "pictures/family-bedtime-story.svg", file: "pictures/family-bedtime-story.svg" },
+  { name: "Family Picnic", key: "pictures/family-picnic.svg", file: "pictures/family-picnic.svg" },
+  { name: "Family Crafts", key: "pictures/family-crafts.svg", file: "pictures/family-crafts.svg" },
+  { name: "Family Bath Time", key: "pictures/family-bath-time.svg", file: "pictures/family-bath-time.svg" }
 ];
 
 const quickColors = ["#ff3b30", "#ff9500", "#ffcc00", "#34c759", "#007aff"];
