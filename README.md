@@ -18,3 +18,5 @@ A child-friendly, installable iPad PWA coloring book optimized for Apple Pencil.
 - Search-engine exclusion via robots meta, robots.txt, and X-Robots-Tag headers
 
 On iPad: open the HTTPS URL in Safari, Share > Add to Home Screen.
+
+Vercel deployment source: GitHub `main`.
