@@ -1,18 +1,14 @@
-const CACHE = "star-color-v5";
-const CORE = ["./", "./index.html", "./style.css", "./app.js", "./manifest.webmanifest"];
-const REMOTE = [
-  "https://star-color-akmbmw0zl-henryle1.vercel.app/icon-192.png", "https://star-color-akmbmw0zl-henryle1.vercel.app/icon-512.png",
-  "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-01.png", "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-02.png", "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-03.png",
-  "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-04.png", "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-05.png", "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-06.png",
-  "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-07.png", "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-08.png", "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-09.png",
-  "https://star-color-akmbmw0zl-henryle1.vercel.app/pictures/winter-10.png"
+const CACHE = "star-color-v6";
+const ASSETS = [
+  "./", "./index.html", "./style.css", "./app.js", "./manifest.webmanifest",
+  "./icon-192.png", "./icon-512.png",
+  "./pictures/winter-01.png", "./pictures/winter-02.png", "./pictures/winter-03.png",
+  "./pictures/winter-04.png", "./pictures/winter-05.png", "./pictures/winter-06.png",
+  "./pictures/winter-07.png", "./pictures/winter-08.png", "./pictures/winter-09.png",
+  "./pictures/winter-10.png"
 ];
 self.addEventListener("install", event => {
-  event.waitUntil((async () => {
-    const cache = await caches.open(CACHE);
-    await cache.addAll(CORE);
-    await Promise.allSettled(REMOTE.map(url => cache.add(url)));
-  })());
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
   self.skipWaiting();
 });
 self.addEventListener("activate", event => {
@@ -22,10 +18,7 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
-    if (response && (response.ok || response.type === "opaque")) {
-      const copy = response.clone();
-      caches.open(CACHE).then(cache => cache.put(event.request, copy));
-    }
+    if (response && response.ok) caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
     return response;
   }).catch(() => event.request.mode === "navigate" ? caches.match("./index.html") : undefined)));
 });
