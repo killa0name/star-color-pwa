@@ -8,7 +8,17 @@ const pictures = [
   { name: "Ice Skating", key: "pictures/winter-07.png", file: "pictures/winter-07.png" },
   { name: "Star Lantern", key: "pictures/winter-08.png", file: "pictures/winter-08.png" },
   { name: "Snow Deer", key: "pictures/winter-09.png", file: "pictures/winter-09.png" },
-  { name: "Winter Party", key: "pictures/winter-10.png", file: "pictures/winter-10.png" }
+  { name: "Winter Party", key: "pictures/winter-10.png", file: "pictures/winter-10.png" },
+  { name: "Happy Cat", key: "pictures/animal-cat.svg", file: "pictures/animal-cat.svg" },
+  { name: "Happy Dog", key: "pictures/animal-dog.svg", file: "pictures/animal-dog.svg" },
+  { name: "Happy Bunny", key: "pictures/animal-bunny.svg", file: "pictures/animal-bunny.svg" },
+  { name: "Happy Bear", key: "pictures/animal-bear.svg", file: "pictures/animal-bear.svg" },
+  { name: "Happy Elephant", key: "pictures/animal-elephant.svg", file: "pictures/animal-elephant.svg" },
+  { name: "Happy Giraffe", key: "pictures/animal-giraffe.svg", file: "pictures/animal-giraffe.svg" },
+  { name: "Happy Lion", key: "pictures/animal-lion.svg", file: "pictures/animal-lion.svg" },
+  { name: "Happy Turtle", key: "pictures/animal-turtle.svg", file: "pictures/animal-turtle.svg" },
+  { name: "Happy Owl", key: "pictures/animal-owl.svg", file: "pictures/animal-owl.svg" },
+  { name: "Happy Dolphin", key: "pictures/animal-dolphin.svg", file: "pictures/animal-dolphin.svg" }
 ];
 
 const quickColors = ["#ff3b30", "#ff9500", "#ffcc00", "#34c759", "#007aff"];
@@ -21,6 +31,7 @@ const canvas = document.getElementById("paintCanvas");
 const ctx = canvas.getContext("2d", { willReadFrequently: false });
 const lineArt = document.getElementById("lineArt");
 const artboard = document.getElementById("artboard");
+const workspace = document.querySelector(".workspace");
 const palette = document.getElementById("colorPalette");
 const moreColorBtn = document.getElementById("moreColorBtn");
 const colorPopover = document.getElementById("colorPopover");
@@ -169,6 +180,27 @@ function syncSizeButtons() {
 
 function syncPencilMode() { pencilModeBtn.classList.toggle("active", pencilOnly); pencilModeBtn.setAttribute("aria-pressed", String(pencilOnly)); pencilModeBtn.setAttribute("aria-label", pencilOnly ? "Apple Pencil only" : "Apple Pencil and finger drawing"); const label=pencilModeBtn.querySelector(".pencil-label"); if(label) label.textContent=pencilOnly?"Pencil":"+ Finger"; }
 
+function fitArtboardToImage() {
+  if (!lineArt.naturalWidth || !lineArt.naturalHeight) return;
+  const box = workspace.getBoundingClientRect();
+  if (!box.width || !box.height) return;
+
+  const ratio = lineArt.naturalWidth / lineArt.naturalHeight;
+  const maxW = Math.max(1, box.width - 4);
+  const maxH = Math.max(1, box.height - 4);
+  let width = maxW;
+  let height = width / ratio;
+
+  if (height > maxH) {
+    height = maxH;
+    width = height * ratio;
+  }
+
+  artboard.style.width = `${Math.floor(width)}px`;
+  artboard.style.height = `${Math.floor(height)}px`;
+  artboard.style.aspectRatio = `${lineArt.naturalWidth} / ${lineArt.naturalHeight}`;
+}
+
 function resizeCanvas(preserve = true) {
   const rect = artboard.getBoundingClientRect();
   const dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2.5));
@@ -215,6 +247,7 @@ async function openPicture(index) {
   galleryView.classList.add("hidden");
   coloringView.classList.remove("hidden");
   lineArt.onload = async () => {
+    fitArtboardToImage();
     resizeCanvas(false);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     await restoreSavedDrawing();
@@ -441,7 +474,10 @@ document.getElementById("shareBtn").addEventListener("click", shareFinishedPictu
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
-    if (!coloringView.classList.contains("hidden")) resizeCanvas(true);
+    if (!coloringView.classList.contains("hidden")) {
+      fitArtboardToImage();
+      resizeCanvas(true);
+    }
   }, 160);
 });
 
