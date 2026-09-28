@@ -19,7 +19,7 @@ const pictures = [
   { name: "Happy Turtle", key: "pictures/animal-turtle.svg", file: "pictures/animal-turtle.svg" },
   { name: "Happy Owl", key: "pictures/animal-owl.svg", file: "pictures/animal-owl.svg" },
   { name: "Happy Dolphin", key: "pictures/animal-dolphin.svg", file: "pictures/animal-dolphin.svg" },
-  { name: "My Plush Cat", key: "pictures/toy-cat.png", file: "pictures/toy-cat.png" }
+  { name: "My Plush Cat", key: "pictures/toy-cat-clean.svg", file: "pictures/toy-cat-clean.svg" }
 ];
 
 const quickColors = ["#ff3b30", "#ff9500", "#ffcc00", "#34c759", "#007aff"];
