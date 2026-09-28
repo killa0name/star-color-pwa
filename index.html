@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no, maximum-scale=1" />
+  <meta name="theme-color" content="#7867ff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Star Color" />
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="https://star-color-akmbmw0zl-henryle1.vercel.app/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Star Color</title>
+</head>
+<body>
+  <main id="app">
+    <section id="galleryView" class="view gallery-view">
+      <header class="hero">
+        <div class="hero-star">✨</div>
+        <div>
+          <div class="eyebrow">MY WINTER COLORING BOOK</div>
+          <h1>Pick a picture!</h1>
+          <p>Tap one to start coloring.</p>
+        </div>
+      </header>
+      <div id="gallery" class="gallery" aria-label="Coloring pictures"></div>
+      <div class="home-tip">✏️ Apple Pencil works best. Your coloring saves automatically.</div>
+    </section>
+
+    <section id="coloringView" class="view coloring-view hidden">
+      <header class="draw-header">
+        <button id="backBtn" class="round-btn" aria-label="Back to pictures"><span>🏠</span><small>Home</small></button>
+        <div class="draw-title">
+          <div class="eyebrow">COLORING TIME</div>
+          <h2 id="pictureTitle">Winter Star</h2>
+          <div id="saveState" class="save-state">Saved ✓</div>
+        </div>
+        <button id="shareBtn" class="round-btn accent" aria-label="Save or share picture"><span>💾</span><small>Save</small></button>
+      </header>
+
+      <div class="workspace">
+        <div id="artboard" class="artboard" aria-label="Coloring canvas">
+          <canvas id="paintCanvas"></canvas>
+          <img id="lineArt" alt="Coloring page line art" draggable="false" />
+        </div>
+      </div>
+
+      <section class="notes-palette" aria-label="Coloring tools">
+        <div class="notes-tools" role="toolbar" aria-label="Drawing tools">
+          <button class="tool-btn active" data-tool="brush" aria-label="Pen"><span class="tool-icon pen-icon" aria-hidden="true"></span><span class="sr-only">Pen</span></button>
+          <button class="tool-btn" data-tool="pencil" aria-label="Pencil"><span class="tool-icon pencil-icon" aria-hidden="true"></span><span class="sr-only">Pencil</span></button>
+          <button class="tool-btn" data-tool="marker" aria-label="Highlighter"><span class="tool-icon marker-icon" aria-hidden="true"></span><span class="sr-only">Highlighter</span></button>
+          <button class="tool-btn" data-tool="eraser" aria-label="Eraser"><span class="tool-icon eraser-icon" aria-hidden="true"></span><span class="sr-only">Eraser</span></button>
+          <span class="palette-divider" aria-hidden="true"></span>
+          <button id="undoBtn" class="tool-btn utility-tool" aria-label="Undo"><span class="undo-icon" aria-hidden="true">↶</span><span class="sr-only">Undo</span></button>
+        </div>
+        <div class="notes-lower-row">
+          <div class="size-pills" aria-label="Stroke size">
+            <button class="size-btn" data-size="8" aria-label="Thin stroke"><span class="size-dot thin"></span></button>
+            <button class="size-btn active" data-size="18" aria-label="Medium stroke"><span class="size-dot medium"></span></button>
+            <button class="size-btn" data-size="32" aria-label="Thick stroke"><span class="size-dot thick"></span></button>
+          </div>
+          <div class="palette-divider vertical" aria-hidden="true"></div>
+          <div class="palette-wrap">
+            <div id="colorPalette" class="colors" aria-label="Choose a color"></div>
+            <button id="moreColorBtn" class="more-color-btn" aria-label="More colors" aria-expanded="false"><span class="rainbow-ring"></span></button>
+          </div>
+          <div class="palette-divider vertical optional-divider" aria-hidden="true"></div>
+          <button id="pencilModeBtn" class="pencil-mode active" aria-pressed="true" aria-label="Apple Pencil only"><span class="pencil-status-icon" aria-hidden="true">✎</span><span class="pencil-label">Pencil</span></button>
+          <button id="clearBtn" class="clear-btn" aria-label="Clear coloring"><span aria-hidden="true">⌫</span><span class="sr-only">Clear</span></button>
+        </div>
+        <div id="colorPopover" class="color-popover hidden" role="dialog" aria-label="More colors">
+          <div class="color-popover-head"><strong>Colors</strong><button id="closeColorsBtn" class="close-colors" aria-label="Close colors">Done</button></div>
+          <div id="allColorsGrid" class="all-colors-grid"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
