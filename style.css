@@ -10,3 +10,86 @@
 .color-popover{position:absolute;left:50%;bottom:calc(100% + 9px);width:min(330px,calc(100vw - 28px));transform:translateX(-50%);padding:12px;border:1px solid rgba(60,60,67,.18);border-radius:20px;background:rgba(250,250,250,.97);box-shadow:0 14px 44px rgba(0,0,0,.23);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}.color-popover-head{display:flex;align-items:center;justify-content:space-between;padding:0 2px 10px;font-size:17px;color:#1c1c1e}.close-colors{border:0;background:transparent;color:#007aff;font-weight:700;padding:5px 2px;cursor:pointer}.all-colors-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.all-color-btn{width:34px;height:34px;justify-self:center;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px rgba(60,60,67,.22);cursor:pointer}.all-color-btn.active{box-shadow:0 0 0 2px #fff,0 0 0 4px #1c1c1e;transform:scale(.9)}
 .toast{position:fixed;z-index:50;left:50%;bottom:max(22px,env(safe-area-inset-bottom));transform:translateX(-50%) translateY(18px);padding:12px 18px;border-radius:999px;background:#2c2747;color:#fff;font-weight:900;opacity:0;pointer-events:none;transition:.18s ease;box-shadow:0 8px 24px rgba(0,0,0,.2)}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(min-width:760px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.gallery-view{padding-left:25px;padding-right:25px}.picture-card{padding:10px}.card-name{font-size:17px}.notes-palette{padding-left:12px;padding-right:12px}.tool-btn{width:58px;height:58px;flex-basis:58px}.color-btn{width:36px;height:36px;flex-basis:36px}}@media(orientation:landscape) and (max-height:850px){.coloring-view{max-width:1200px}.draw-header{margin-bottom:7px}.artboard{width:min(54vw,calc((100dvh - 205px)*.8));min-width:360px}.notes-palette{margin-top:8px}}@media(max-width:650px){.notes-palette{width:100%;max-width:100%;border-radius:22px}.tool-btn{width:50px;height:50px;flex-basis:50px}.notes-lower-row{gap:3px}.colors{gap:5px}.color-btn{width:30px;height:30px;flex-basis:30px}.more-color-btn{width:34px;height:34px;flex-basis:34px}.rainbow-ring{width:28px;height:28px}.pencil-label{display:none}.pencil-mode{min-width:38px;padding:0 4px}.optional-divider{display:none}}@media(max-width:430px){.color-btn:nth-child(n+5){display:none}.palette-divider.vertical{margin:0 2px}.size-btn{width:33px}}
+
+/* Star Color iPad layout v2 */
+.coloring-view{
+  height:100dvh;min-height:0;max-height:100dvh;max-width:1180px;
+  display:grid;grid-template-rows:auto minmax(0,1fr) auto;
+  overflow:hidden;padding-bottom:max(8px,env(safe-area-inset-bottom));
+}
+.draw-header{
+  display:grid;grid-template-columns:54px 1fr 54px;gap:8px;align-items:center;
+  margin-bottom:6px;
+}
+.round-btn{width:54px;height:54px;border-radius:17px}
+.round-btn span{font-size:22px}.round-btn small{font-size:9px}
+.draw-title h2{font-size:clamp(19px,3.4vw,27px)}
+.save-state{margin-top:1px;min-height:14px;font-size:10px}
+.workspace{
+  min-height:0;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;padding:0;
+}
+.artboard{
+  position:relative;height:100%;width:auto;max-width:100%;aspect-ratio:4/5;
+  overflow:hidden;border:2px solid var(--border);border-radius:22px;background:#fff;
+  box-shadow:0 10px 28px rgba(72,55,137,.12);
+}
+#paintCanvas,#lineArt{position:absolute;inset:0;width:100%;height:100%}
+#lineArt{object-fit:contain}
+.notes-palette{
+  position:relative;z-index:20;bottom:auto;display:flex;align-items:center;justify-content:center;
+  gap:5px;width:max-content;max-width:100%;margin:6px auto 0;padding:5px 7px;
+  border-radius:22px;background:rgba(249,249,249,.94);
+}
+.notes-tools,.notes-lower-row{display:flex;align-items:center;justify-content:center;gap:2px}
+.notes-lower-row{margin:0;padding:0;border-top:0}
+.tool-btn{width:46px;height:46px;flex:0 0 46px}
+.tool-icon{display:none!important}
+.tool-svg{
+  display:block;width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:2.05;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.eraser-svg{width:28px;height:28px}
+.tool-btn.active::after{bottom:3px;width:14px}
+.undo-icon{font-size:29px}
+.palette-divider{height:30px;margin:0 3px}
+.palette-divider.vertical{height:27px;margin:0 3px}
+.size-pills{gap:1px;padding:2px;border-radius:17px}
+.size-btn{width:31px;height:31px;border-radius:15px}
+.color-btn{width:29px;height:29px;flex:0 0 29px}
+.colors{gap:5px}
+.more-color-btn{width:32px;height:32px;flex:0 0 32px}
+.rainbow-ring{width:27px;height:27px}
+.pencil-mode{min-width:48px;height:34px;padding:0 7px;font-size:10px}
+.pencil-status-icon{font-size:18px}
+.clear-btn{width:36px;height:34px;font-size:21px}
+.color-popover{bottom:calc(100% + 7px)}
+@media(max-width:760px){
+  .notes-palette{gap:2px;padding-left:5px;padding-right:5px}
+  .tool-btn{width:43px;height:43px;flex-basis:43px}
+  .tool-svg{width:25px;height:25px}
+  .size-btn{width:29px}
+  .color-btn{width:27px;height:27px;flex-basis:27px}
+  .colors{gap:4px}
+  .pencil-label{display:none}
+  .pencil-mode{min-width:34px;padding:0 3px}
+  .optional-divider{display:none}
+}
+@media(max-width:680px){
+  .notes-palette{display:block;width:100%;border-radius:20px}
+  .notes-lower-row{margin-top:3px;padding-top:4px;border-top:1px solid rgba(60,60,67,.09)}
+  .color-btn:nth-child(n+5){display:none}
+  .draw-header{grid-template-columns:48px 1fr 48px}
+  .round-btn{width:48px;height:48px}
+}
+@media(orientation:landscape) and (max-height:720px){
+  .draw-header{grid-template-columns:46px 1fr 46px;margin-bottom:4px}
+  .round-btn{width:46px;height:46px}
+  .notes-palette{margin-top:4px}
+  .tool-btn{width:40px;height:40px;flex-basis:40px}
+  .tool-svg{width:23px;height:23px}
+  .size-btn{width:28px;height:28px}
+  .color-btn{width:25px;height:25px;flex-basis:25px}
+  .more-color-btn{width:28px;height:28px;flex-basis:28px}
+  .rainbow-ring{width:24px;height:24px}
+}
