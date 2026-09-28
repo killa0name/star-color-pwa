@@ -1,0 +1,14 @@
+{
+  "name": "Star Color - Winter Coloring",
+  "short_name": "Star Color",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f3ff",
+  "theme_color": "#7867ff",
+  "icons": [
+    {"src":"https://star-color-akmbmw0zl-henryle1.vercel.app/icon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"https://star-color-akmbmw0zl-henryle1.vercel.app/icon-512.png","sizes":"512x512","type":"image/png"}
+  ]
+}
