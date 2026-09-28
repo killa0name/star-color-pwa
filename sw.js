@@ -1,11 +1,16 @@
-const CACHE = "star-color-v6";
+const CACHE = "star-color-v7";
 const ASSETS = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png",
   "./pictures/winter-01.png", "./pictures/winter-02.png", "./pictures/winter-03.png",
   "./pictures/winter-04.png", "./pictures/winter-05.png", "./pictures/winter-06.png",
   "./pictures/winter-07.png", "./pictures/winter-08.png", "./pictures/winter-09.png",
-  "./pictures/winter-10.png"
+  "./pictures/winter-10.png",
+  "./pictures/animal-cat.svg", "./pictures/animal-dog.svg",
+  "./pictures/animal-bunny.svg", "./pictures/animal-bear.svg",
+  "./pictures/animal-elephant.svg", "./pictures/animal-giraffe.svg",
+  "./pictures/animal-lion.svg", "./pictures/animal-turtle.svg",
+  "./pictures/animal-owl.svg", "./pictures/animal-dolphin.svg"
 ];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));
