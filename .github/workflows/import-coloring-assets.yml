@@ -16,17 +16,28 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Download coloring images into this repository
+      - name: Download the real coloring image files
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p pictures
           BASE="https://star-color-akmbmw0zl-henryle1.vercel.app"
+          COOKIE_JAR="$RUNNER_TEMP/vercel-cookies.txt"
+
+          # Prime Vercel's temporary share cookie.
+          curl --fail --silent --show-error --location             --cookie-jar "$COOKIE_JAR" --cookie "$COOKIE_JAR"             "$BASE/?_vercel_share=vQtISFF2wINCmwKxMKEiAiRr7vjPhJR9"             --output /dev/null
+
           for n in 01 02 03 04 05 06 07 08 09 10; do
-            curl --fail --location --retry 3 "$BASE/pictures/winter-$n.png" --output "pictures/winter-$n.png"
+            curl --fail --silent --show-error --location --retry 3               --cookie "$COOKIE_JAR"               "$BASE/pictures/winter-$n.png"               --output "pictures/winter-$n.png"
           done
-          curl --fail --location --retry 3 "$BASE/icon-192.png" --output icon-192.png
-          curl --fail --location --retry 3 "$BASE/icon-512.png" --output icon-512.png
+
+          curl --fail --silent --show-error --location --retry 3             --cookie "$COOKIE_JAR" "$BASE/icon-192.png" --output icon-192.png
+          curl --fail --silent --show-error --location --retry 3             --cookie "$COOKIE_JAR" "$BASE/icon-512.png" --output icon-512.png
+
+          # Fail instead of committing an HTML auth page as a PNG.
+          for f in pictures/*.png icon-192.png icon-512.png; do
+            test "$(head -c 8 "$f" | xxd -p)" = "89504e470d0a1a0a"
+          done
 
       - name: Commit imported assets
         shell: bash
@@ -37,5 +48,5 @@ jobs:
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "Import coloring image assets"
+          git commit -m "Replace protected placeholders with coloring images"
           git push
