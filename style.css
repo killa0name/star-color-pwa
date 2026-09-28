@@ -93,3 +93,16 @@
   .more-color-btn{width:28px;height:28px;flex-basis:28px}
   .rainbow-ring{width:24px;height:24px}
 }
+
+
+/* Landscape animal pages + per-image artboard sizing */
+.picture-card .thumb-wrap{aspect-ratio:4/3}
+.picture-card img{object-fit:contain}
+.artboard{
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  aspect-ratio:auto;
+}
