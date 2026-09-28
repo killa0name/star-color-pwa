@@ -1,4 +1,4 @@
-const CACHE = "star-color-v7";
+const CACHE = "star-color-v8";
 const ASSETS = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png",
@@ -22,8 +22,37 @@ self.addEventListener("activate", event => {
 });
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
-  event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
-    if (response && response.ok) caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
-    return response;
-  }).catch(() => event.request.mode === "navigate" ? caches.match("./index.html") : undefined)));
+  const url = new URL(event.request.url);
+  const isAppShell = event.request.mode === "navigate" ||
+    url.pathname.endsWith("/index.html") ||
+    url.pathname.endsWith("/style.css") ||
+    url.pathname.endsWith("/app.js") ||
+    url.pathname.endsWith("/manifest.webmanifest");
+
+  if (isAppShell) {
+    event.respondWith(
+      fetch(event.request).then(response => {
+        if (response && response.ok) {
+          caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
+        }
+        return response;
+      }).catch(() =>
+        caches.match(event.request).then(cached =>
+          cached || (event.request.mode === "navigate" ? caches.match("./index.html") : undefined)
+        )
+      )
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request).then(cached =>
+      cached || fetch(event.request).then(response => {
+        if (response && response.ok) {
+          caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
+        }
+        return response;
+      })
+    )
+  );
 });
