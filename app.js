@@ -19,7 +19,17 @@ const pictures = [
   { name: "Happy Turtle", key: "pictures/animal-turtle.svg", file: "pictures/animal-turtle.svg" },
   { name: "Happy Owl", key: "pictures/animal-owl.svg", file: "pictures/animal-owl.svg" },
   { name: "Happy Dolphin", key: "pictures/animal-dolphin.svg", file: "pictures/animal-dolphin.svg" },
-  { name: "My Plush Cat", key: "pictures/plush-cat-ipad-v2.svg", file: "pictures/plush-cat-ipad-v2.svg" }
+  { name: "My Plush Cat", key: "pictures/plush-cat-ipad-v2.svg", file: "pictures/plush-cat-ipad-v2.svg" },
+  { name: "Cat with Balloon", key: "pictures/plush-cat-balloon.svg", file: "pictures/plush-cat-balloon.svg" },
+  { name: "Cat with Star Wand", key: "pictures/plush-cat-star-wand.svg", file: "pictures/plush-cat-star-wand.svg" },
+  { name: "Cat Reading", key: "pictures/plush-cat-reading.svg", file: "pictures/plush-cat-reading.svg" },
+  { name: "Cat Hugging Heart", key: "pictures/plush-cat-heart.svg", file: "pictures/plush-cat-heart.svg" },
+  { name: "Cat with Cupcake", key: "pictures/plush-cat-cupcake.svg", file: "pictures/plush-cat-cupcake.svg" },
+  { name: "Cat with Gift", key: "pictures/plush-cat-gift.svg", file: "pictures/plush-cat-gift.svg" },
+  { name: "Cat with Flowers", key: "pictures/plush-cat-flowers.svg", file: "pictures/plush-cat-flowers.svg" },
+  { name: "Cat with Fish", key: "pictures/plush-cat-fish.svg", file: "pictures/plush-cat-fish.svg" },
+  { name: "Cat Dancing", key: "pictures/plush-cat-tambourine.svg", file: "pictures/plush-cat-tambourine.svg" },
+  { name: "Cat Painting", key: "pictures/plush-cat-artist.svg", file: "pictures/plush-cat-artist.svg" }
 ];
 
 const quickColors = ["#ff3b30", "#ff9500", "#ffcc00", "#34c759", "#007aff"];
