@@ -1,4 +1,4 @@
-const CACHE = "star-color-v17";
+const CACHE = "star-color-v18";
 const ASSETS = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png",
@@ -11,7 +11,7 @@ const ASSETS = [
   "./pictures/animal-elephant.svg", "./pictures/animal-giraffe.svg",
   "./pictures/animal-lion.svg", "./pictures/animal-turtle.svg",
   "./pictures/animal-owl.svg", "./pictures/animal-dolphin.svg",
-  "./pictures/plush-cat-ipad-v2.svg"
+  "./pictures/plush-cat-ipad-v2.svg",
   "./pictures/plush-cat-balloon.png",
   "./pictures/plush-cat-star-wand.png",
   "./pictures/plush-cat-reading.png",
