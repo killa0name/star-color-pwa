@@ -1,4 +1,4 @@
-const CACHE = "star-color-v19";
+const CACHE = "star-color-v20";
 const ASSETS = [
   "./", "./index.html", "./style.css", "./app.js", "./manifest.webmanifest",
   "./icon-192.png", "./icon-512.png",
