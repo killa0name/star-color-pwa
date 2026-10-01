@@ -35,16 +35,16 @@ const pictures = [
   { name: "Family Picnic", key: "pictures/family-picnic.svg", file: "pictures/family-picnic.svg" },
   { name: "Family Crafts", key: "pictures/family-crafts.svg", file: "pictures/family-crafts.svg" },
   { name: "Family Bath Time", key: "pictures/family-bath-time.svg", file: "pictures/family-bath-time.svg" },
-  { name: "Princess with Kitten", key: "pictures/princess-01.svg", file: "pictures/princess-01.svg" },
-  { name: "Princess with Flowers", key: "pictures/princess-02.svg", file: "pictures/princess-02.svg" },
-  { name: "Princess with Star Wand", key: "pictures/princess-03.svg", file: "pictures/princess-03.svg" },
-  { name: "Princess with Heart Purse", key: "pictures/princess-04.svg", file: "pictures/princess-04.svg" },
-  { name: "Princess Reading", key: "pictures/princess-05.svg", file: "pictures/princess-05.svg" },
-  { name: "Princess with Cake", key: "pictures/princess-06.svg", file: "pictures/princess-06.svg" },
-  { name: "Princess with Bird", key: "pictures/princess-07.svg", file: "pictures/princess-07.svg" },
-  { name: "Princess with Umbrella", key: "pictures/princess-08.svg", file: "pictures/princess-08.svg" },
-  { name: "Princess with Teddy", key: "pictures/princess-09.svg", file: "pictures/princess-09.svg" },
-  { name: "Princess with Flower Basket", key: "pictures/princess-10.svg", file: "pictures/princess-10.svg" }
+  { name: "Princess with Kitten", key: "pictures/princess-01-v21.svg", file: "pictures/princess-01-v21.svg" },
+  { name: "Princess with Flowers", key: "pictures/princess-02-v21.svg", file: "pictures/princess-02-v21.svg" },
+  { name: "Princess with Star Wand", key: "pictures/princess-03-v21.svg", file: "pictures/princess-03-v21.svg" },
+  { name: "Princess with Heart Purse", key: "pictures/princess-04-v21.svg", file: "pictures/princess-04-v21.svg" },
+  { name: "Princess Reading", key: "pictures/princess-05-v21.svg", file: "pictures/princess-05-v21.svg" },
+  { name: "Princess with Cake", key: "pictures/princess-06-v21.svg", file: "pictures/princess-06-v21.svg" },
+  { name: "Princess with Bird", key: "pictures/princess-07-v21.svg", file: "pictures/princess-07-v21.svg" },
+  { name: "Princess with Umbrella", key: "pictures/princess-08-v21.svg", file: "pictures/princess-08-v21.svg" },
+  { name: "Princess with Teddy", key: "pictures/princess-09-v21.svg", file: "pictures/princess-09-v21.svg" },
+  { name: "Princess with Flower Basket", key: "pictures/princess-10-v21.svg", file: "pictures/princess-10-v21.svg" }
 ];
 
 const quickColors = ["#ff3b30", "#ff9500", "#ffcc00", "#34c759", "#007aff"];
