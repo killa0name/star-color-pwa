@@ -153,3 +153,25 @@ body{background:var(--bg)}
 .app-switch-link{min-width:136px;min-height:48px;padding:10px 18px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:15px;color:#625b78;text-decoration:none;font-weight:950;transition:transform .12s ease,background .15s ease,color .15s ease}
 .app-switch-link span{font-size:21px}.app-switch-link:active{transform:scale(.97)}.app-switch-link.active{color:#fff;background:linear-gradient(135deg,#6c5cff,#987cff);box-shadow:0 5px 14px rgba(108,92,255,.25)}
 @media(max-width:430px){.app-switch{width:100%}.app-switch-link{min-width:0;flex:1;padding-left:10px;padding-right:10px}}
+
+
+/* v11 robust full-page coloring viewport */
+.coloring-view{
+  height:100svh!important;
+  min-height:100svh!important;
+  max-height:100svh!important;
+  overflow:hidden!important;
+}
+.workspace{
+  width:100%!important;
+  min-height:0!important;
+  flex:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.artboard{
+  flex:none!important;
+  margin:0 auto!important;
+}
+#lineArt{object-fit:fill!important}

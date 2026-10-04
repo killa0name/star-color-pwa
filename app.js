@@ -208,15 +208,21 @@ function syncPencilMode() { pencilModeBtn.classList.toggle("active", pencilOnly)
 
 function fitArtboardToImage() {
   if (!lineArt.naturalWidth || !lineArt.naturalHeight) return;
-  const box = workspace.getBoundingClientRect();
-  if (!box.width || !box.height) return;
+
+  const viewRect = coloringView.getBoundingClientRect();
+  const header = coloringView.querySelector(".draw-header");
+  const headerH = header ? header.getBoundingClientRect().height : 0;
+  const toolbarH = notesPalette ? notesPalette.getBoundingClientRect().height : 0;
+  const viewportH = window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight;
+  const availableViewH = Math.min(viewRect.height || viewportH, viewportH);
+  const maxH = Math.max(180, availableViewH - headerH - toolbarH - 22);
+  const maxW = Math.max(1, workspace.clientWidth || viewRect.width || window.innerWidth);
+
+  workspace.style.height = `${Math.floor(maxH)}px`;
 
   const ratio = lineArt.naturalWidth / lineArt.naturalHeight;
-  const maxW = Math.max(1, box.width - 4);
-  const maxH = Math.max(1, box.height - 4);
   let width = maxW;
   let height = width / ratio;
-
   if (height > maxH) {
     height = maxH;
     width = height * ratio;
@@ -224,7 +230,7 @@ function fitArtboardToImage() {
 
   artboard.style.width = `${Math.floor(width)}px`;
   artboard.style.height = `${Math.floor(height)}px`;
-  artboard.style.aspectRatio = `${lineArt.naturalWidth} / ${lineArt.naturalHeight}`;
+  artboard.style.aspectRatio = "auto";
 }
 
 function resizeCanvas(preserve = true) {
