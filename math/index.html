@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no,maximum-scale=1">
+<meta name="theme-color" content="#6c5ce7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Math Adventure">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-192.png">
+<title>Math Adventure</title>
+<style>
+:root{font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#2f2b4a;background:#fbf7ef}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:radial-gradient(circle at 15% 5%,#fff7ce 0,transparent 28%),radial-gradient(circle at 88% 8%,#eee8ff 0,transparent 28%),#fbf7ef}button{font:inherit;color:inherit;cursor:pointer}.app{max-width:980px;margin:auto;padding:max(20px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}.hidden{display:none!important}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:900;color:#6c5ce7}.top h1,.top h2{margin:3px 0 0;font-size:clamp(30px,5vw,50px);line-height:1}.stars{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid #ffe09b;border-radius:20px;padding:10px 15px;font-size:24px;font-weight:900;box-shadow:0 7px 0 rgba(47,43,74,.06)}.hero{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:#fff;border:2px solid rgba(47,43,74,.09);border-radius:26px;padding:16px 18px;margin-bottom:18px}.hero .fox{font-size:54px}.hero strong{font-size:21px}.hero small{display:block;color:#746f8d;margin-top:3px}.level{background:#eeeafe;color:#6c5ce7;font-weight:900;border-radius:999px;padding:9px 13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.game{border:0;border-radius:28px;min-height:280px;padding:20px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 9px 0 rgba(47,43,74,.07)}.game:active,.choice:active,.obj:active{transform:translateY(4px)}.feed{background:#fff1c7}.bond{background:#e8e4ff}.treasure{background:#dff7eb}.art{font-size:68px}.game span{font-size:12px;font-weight:900;letter-spacing:.1em;opacity:.65}.game strong{display:block;font-size:25px;margin-top:5px}.game small{display:block;color:#655f78;font-size:15px;margin-top:5px}.footer{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.soft,.homebtn{border:2px solid rgba(47,43,74,.1);background:#fff;border-radius:17px;min-height:48px;padding:10px 15px;font-weight:850}.homebtn{width:52px;padding:0;font-size:23px}.stage{min-height:560px;background:#fff;border:2px solid rgba(47,43,74,.09);border-radius:32px;padding:26px;box-shadow:0 11px 0 rgba(47,43,74,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.character{font-size:90px}.prompt{font-size:clamp(26px,4vw,39px);font-weight:950;text-align:center;margin:12px 0}.sub{font-size:18px;color:#746f8d;margin:-4px 0 18px;text-align:center}.basket{width:min(100%,530px);min-height:95px;border:3px dashed #e7bf59;background:#fff8df;border-radius:22px;padding:10px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:18px}.basket:empty:after{content:"Tap carrots to feed Bunny";color:#927d4b;font-weight:800}.objs{width:min(100%,610px);display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.obj{border:0;min-height:68px;border-radius:18px;background:#fff3c3;box-shadow:0 5px 0 #ead68c;font-size:38px}.obj.used{opacity:.2;box-shadow:none}.eq{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:clamp(38px,7vw,68px);font-weight:950;margin:10px 0 24px}.tile{background:#f2efff;border-radius:20px;min-width:75px;text-align:center;padding:8px}.mystery{background:#fff0b6;color:#946700}.choices{display:grid;grid-template-columns:repeat(3,minmax(95px,155px));gap:14px}.choice{border:0;min-height:94px;border-radius:22px;background:#f2efff;box-shadow:0 6px 0 #d8d1fb;font-size:39px;font-weight:950}.choice.bad{background:#fff0f1;animation:shake .25s}.story{width:min(100%,620px);background:#f7f4ff;border-radius:22px;padding:17px 19px;font-size:21px;font-weight:800;line-height:1.35;text-align:center;margin:8px 0 20px}.visual{font-size:48px;text-align:center}.progress{display:flex;align-items:center;gap:10px;font-weight:850}.bar{width:180px;height:10px;background:#eeeaf5;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;width:0;background:#ffb347;border-radius:inherit}.win{position:absolute;inset:0;background:rgba(255,255,255,.95);display:grid;place-items:center;text-align:center;z-index:5}.win .big{font-size:92px}.win strong{display:block;font-size:32px}.win button{margin-top:18px;border:0;background:#6c5ce7;color:#fff;border-radius:18px;min-height:54px;padding:12px 22px;font-weight:900;font-size:19px}.stats{background:#fff;border:2px solid rgba(47,43,74,.09);border-radius:26px;padding:18px;margin-top:18px}.stat{display:flex;justify-content:space-between;gap:20px;padding:12px 2px;border-bottom:1px solid rgba(47,43,74,.09)}.note{color:#746f8d;line-height:1.45}.danger{width:100%;border:2px solid #ffd2d8;background:#fff5f6;color:#a83343;border-radius:16px;min-height:48px;font-weight:850}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.game{min-height:150px;display:grid;grid-template-columns:95px 1fr;align-items:center}.art{font-size:52px}.hero{grid-template-columns:auto 1fr}.level{grid-column:1/3;justify-self:start}.stage{min-height:520px;padding:19px}.objs{grid-template-columns:repeat(4,1fr)}.footer{flex-wrap:wrap}.progress{width:100%}.bar{flex:1}}
+@media(max-width:430px){.game{grid-template-columns:75px 1fr}.art{font-size:42px}.game strong{font-size:21px}.objs{grid-template-columns:repeat(3,1fr)}.choices{grid-template-columns:repeat(3,1fr)}.choice{min-width:0;font-size:34px}.character{font-size:74px}.prompt{font-size:27px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="app">
+<section id="home">
+<header class="top"><div><div class="eyebrow">MATH ADVENTURE</div><h1>Choose a game!</h1></div><div class="stars">⭐ <b id="starsHome">0</b></div></header>
+<div class="hero"><div class="fox">🦊</div><div><strong id="hello">Ready for an adventure?</strong><small>Play a little, learn a lot.</small></div><div class="level">Level <b id="level">1</b></div></div>
+<div class="grid">
+<button class="game feed" data-game="feed"><div class="art">🐰🥕</div><div><span>COUNTING</span><strong>Feed the Bunny</strong><small>Count the carrots!</small></div></button>
+<button class="game bond" data-game="bond"><div class="art">🤖💎</div><div><span>NUMBER BONDS</span><strong>Crystal Machine</strong><small>Find the missing part.</small></div></button>
+<button class="game treasure" data-game="treasure"><div class="art">🏴‍☠️💰</div><div><span>+ AND −</span><strong>Treasure Hunt</strong><small>Solve the gem story.</small></div></button>
+</div>
+<div class="footer"><button id="sound" class="soft">🔊 Voice on</button><button id="grown" class="soft">⚙️ Grown-ups</button></div>
+<div id="stats" class="stats hidden"><div class="stat"><span>Total stars</span><b id="sStars">0</b></div><div class="stat"><span>Counting correct</span><b id="sFeed">0</b></div><div class="stat"><span>Number bonds correct</span><b id="sBond">0</b></div><div class="stat"><span>Add/subtract correct</span><b id="sTreasure">0</b></div><p class="note">Difficulty increases gently as correct answers build up. Progress stays on this device only.</p><button id="reset" class="danger">Reset progress</button></div>
+</section>
+<section id="play" class="hidden">
+<header class="top"><button id="back" class="homebtn">🏠</button><div style="flex:1"><div id="label" class="eyebrow">COUNTING</div><h2 id="title">Feed the Bunny</h2></div><div class="stars">⭐ <b id="starsPlay">0</b></div></header>
+<div id="stage" class="stage"></div>
+<div class="footer"><div class="progress"><span id="round">1 of 5</span><span class="bar"><i id="fill"></i></span></div><button id="hear" class="soft">🔊 Hear again</button></div>
+</section>
+</main>
+<script>
+(function(){
+var key='mathAdventureV1',def={stars:0,feed:0,bond:0,treasure:0,sound:true},p;
+try{p=Object.assign({},def,JSON.parse(localStorage.getItem(key)||'{}'))}catch(e){p=Object.assign({},def)}
+var game=null,round=1,lastSpeech='';
+function id(x){return document.getElementById(x)}
+function save(){localStorage.setItem(key,JSON.stringify(p));refresh()}
+function refresh(){id('starsHome').textContent=p.stars;id('starsPlay').textContent=p.stars;id('level').textContent=Math.max(1,Math.floor((p.feed+p.bond+p.treasure)/8)+1);id('sound').textContent=p.sound?'🔊 Voice on':'🔇 Voice off';id('sStars').textContent=p.stars+' ⭐';id('sFeed').textContent=p.feed;id('sBond').textContent=p.bond;id('sTreasure').textContent=p.treasure;if(p.stars>=20)id('hello').textContent='Math Explorer!';else if(p.stars>=10)id('hello').textContent='Adventure badge unlocked!'}
+function speak(t){lastSpeech=t;if(!p.sound||!('speechSynthesis'in window))return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.rate=.86;u.pitch=1.12;u.lang='en-US';speechSynthesis.speak(u)}
+function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function mix(a){return a.sort(function(){return Math.random()-.5})}
+function diff(g){return p[g]>=20?3:p[g]>=8?2:1}
+function showPlay(g){game=g;round=1;id('home').classList.add('hidden');id('play').classList.remove('hidden');var m={feed:['COUNTING','Feed the Bunny'],bond:['NUMBER BONDS','Crystal Machine'],treasure:['+ AND −','Treasure Hunt']};id('label').textContent=m[g][0];id('title').textContent=m[g][1];render()}
+function chrome(){id('round').textContent=round+' of 5';id('fill').style.width=((round-1)/5*100)+'%'}
+function win(msg){p.stars++;p[game]++;save();var done=round>=5;var o=document.createElement('div');o.className='win';o.innerHTML='<div><div class="big">'+(done?'🏆':'⭐')+'</div><strong>'+(done?'Adventure complete!':'Great job!')+'</strong><div>'+msg+'</div><button>'+(done?'Choose another game':'Next round')+'</button></div>';o.querySelector('button').onclick=function(){if(done){id('play').classList.add('hidden');id('home').classList.remove('hidden');game=null}else{round++;render()}};id('stage').appendChild(o);speak(done?'Adventure complete! Great job!':'Great job! You earned a star!')}
+function wrong(btn){btn.classList.remove('bad');void btn.offsetWidth;btn.classList.add('bad');speak('Almost. Try again.')}
+function render(){chrome();if(game==='feed')feed();if(game==='bond')bond();if(game==='treasure')treasure()}
+function feed(){var d=diff('feed'),max=d===1?7:d===2?10:15,target=rand(2,max),n=Math.max(10,target+rand(2,5)),sel=0,s=id('stage');s.innerHTML='<div class="character">🐰</div><div class="prompt">Feed Bunny <b>'+target+'</b> carrots!</div><div id="basket" class="basket"></div><div id="objs" class="objs"></div>';for(var i=0;i<n;i++){var b=document.createElement('button');b.className='obj';b.textContent='🥕';b.onclick=function(){if(this.classList.contains('used'))return;this.classList.add('used');sel++;var x=document.createElement('span');x.style.fontSize='38px';x.textContent='🥕';id('basket').appendChild(x);if(sel===target)win('You counted '+target+' carrots.');else if(sel>target){speak('Too many. Let us try again.');setTimeout(feed,650)}};id('objs').appendChild(b)}speak('Feed Bunny '+target+' carrots.')}
+function choices(answer,place,msg){var vals=[answer];while(vals.length<3){var v=Math.max(0,answer+rand(-3,3));if(vals.indexOf(v)<0)vals.push(v)}mix(vals);vals.forEach(function(v){var b=document.createElement('button');b.className='choice';b.textContent=v;b.onclick=function(){if(v===answer)win(msg);else wrong(b)};place.appendChild(b)})}
+function bond(){var d=diff('bond'),total=d===1?rand(5,10):d===2?rand(8,12):rand(10,15),a=rand(1,total-1),ans=total-a,s=id('stage');s.innerHTML='<div class="character">🤖</div><div class="prompt">Power the crystal machine!</div><div class="sub">How many crystals are missing?</div><div class="eq"><span class="tile">'+a+'</span><span>+</span><span class="tile mystery">?</span><span>=</span><span class="tile">'+total+'</span></div><div id="answers" class="choices"></div>';choices(ans,id('answers'),a+' and '+ans+' make '+total+'.');speak(a+' plus what makes '+total+'?')}
+function treasure(){var d=diff('treasure'),sub=d>1&&Math.random()>.48,a,b,ans,story,visual,msg;if(sub){a=rand(4,d===3?15:10);b=rand(1,a-1);ans=a-b;story='Pirate Pip found <b>'+a+'</b> gems. A parrot took <b>'+b+'</b>. How many are left?';visual='💎'.repeat(Math.min(a,9))+' 🦜';msg=a+' minus '+b+' is '+ans+'.'}else{a=rand(1,d===1?5:d===2?8:10);b=rand(1,d===1?5:d===2?8:10);ans=a+b;story='Pirate Pip has <b>'+a+'</b> gems and finds <b>'+b+'</b> more. How many now?';visual='💎'.repeat(Math.min(a,7))+' ➕ '+'💎'.repeat(Math.min(b,7));msg=a+' plus '+b+' is '+ans+'.'}var s=id('stage');s.innerHTML='<div class="character">🏴‍☠️</div><div class="visual">'+visual+'</div><div class="story">'+story+'</div><div id="answers" class="choices"></div>';choices(ans,id('answers'),msg);speak(story.replace(/<[^>]+>/g,''))}
+document.querySelectorAll('[data-game]').forEach(function(b){b.onclick=function(){showPlay(b.getAttribute('data-game'))}});
+id('back').onclick=function(){if('speechSynthesis'in window)speechSynthesis.cancel();id('play').classList.add('hidden');id('home').classList.remove('hidden');game=null};
+id('hear').onclick=function(){speak(lastSpeech)};
+id('sound').onclick=function(){p.sound=!p.sound;save();if(p.sound)speak('Voice is on.');else if('speechSynthesis'in window)speechSynthesis.cancel()};
+id('grown').onclick=function(){id('stats').classList.toggle('hidden')};
+id('reset').onclick=function(){if(confirm('Reset all Math Adventure progress on this iPad?')){p=Object.assign({},def);save()}};
+refresh();
+if('serviceWorker'in navigator)window.addEventListener('load',function(){navigator.serviceWorker.register('./sw.js').catch(function(){})});
+})();
+</script>
+</body>
+</html>
