@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no,maximum-scale=1">
-<meta name="theme-color" content="#6c5ce7">
+<meta name="theme-color" content="#6dbce8">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Math Adventure">
+<meta name="apple-mobile-web-app-title" content="Snow Kingdom Math">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="../icon-192.png">
-<title>Math Adventure</title>
+<title>Snow Kingdom Math Adventure</title>
 <style>
-:root{font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#2f2b4a;background:#fbf7ef}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:radial-gradient(circle at 15% 5%,#fff7ce 0,transparent 28%),radial-gradient(circle at 88% 8%,#eee8ff 0,transparent 28%),#fbf7ef}button{font:inherit;color:inherit;cursor:pointer}.app{max-width:980px;margin:auto;padding:max(20px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}.hidden{display:none!important}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:900;color:#6c5ce7}.top h1,.top h2{margin:3px 0 0;font-size:clamp(30px,5vw,50px);line-height:1}.stars{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid #ffe09b;border-radius:20px;padding:10px 15px;font-size:24px;font-weight:900;box-shadow:0 7px 0 rgba(47,43,74,.06)}.hero{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:#fff;border:2px solid rgba(47,43,74,.09);border-radius:26px;padding:16px 18px;margin-bottom:18px}.hero .fox{font-size:54px}.hero strong{font-size:21px}.hero small{display:block;color:#746f8d;margin-top:3px}.level{background:#eeeafe;color:#6c5ce7;font-weight:900;border-radius:999px;padding:9px 13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.game{border:0;border-radius:28px;min-height:280px;padding:20px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 9px 0 rgba(47,43,74,.07)}.game:active,.choice:active,.obj:active{transform:translateY(4px)}.feed{background:#fff1c7}.bond{background:#e8e4ff}.treasure{background:#dff7eb}.art{font-size:68px}.game span{font-size:12px;font-weight:900;letter-spacing:.1em;opacity:.65}.game strong{display:block;font-size:25px;margin-top:5px}.game small{display:block;color:#655f78;font-size:15px;margin-top:5px}.footer{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.soft,.homebtn{border:2px solid rgba(47,43,74,.1);background:#fff;border-radius:17px;min-height:48px;padding:10px 15px;font-weight:850}.homebtn{width:52px;padding:0;font-size:23px}.stage{min-height:560px;background:#fff;border:2px solid rgba(47,43,74,.09);border-radius:32px;padding:26px;box-shadow:0 11px 0 rgba(47,43,74,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.character{font-size:90px}.prompt{font-size:clamp(26px,4vw,39px);font-weight:950;text-align:center;margin:12px 0}.sub{font-size:18px;color:#746f8d;margin:-4px 0 18px;text-align:center}.basket{width:min(100%,530px);min-height:95px;border:3px dashed #e7bf59;background:#fff8df;border-radius:22px;padding:10px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:18px}.basket:empty:after{content:"Tap carrots to feed Bunny";color:#927d4b;font-weight:800}.objs{width:min(100%,610px);display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.obj{border:0;min-height:68px;border-radius:18px;background:#fff3c3;box-shadow:0 5px 0 #ead68c;font-size:38px}.obj.used{opacity:.2;box-shadow:none}.eq{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:clamp(38px,7vw,68px);font-weight:950;margin:10px 0 24px}.tile{background:#f2efff;border-radius:20px;min-width:75px;text-align:center;padding:8px}.mystery{background:#fff0b6;color:#946700}.choices{display:grid;grid-template-columns:repeat(3,minmax(95px,155px));gap:14px}.choice{border:0;min-height:94px;border-radius:22px;background:#f2efff;box-shadow:0 6px 0 #d8d1fb;font-size:39px;font-weight:950}.choice.bad{background:#fff0f1;animation:shake .25s}.story{width:min(100%,620px);background:#f7f4ff;border-radius:22px;padding:17px 19px;font-size:21px;font-weight:800;line-height:1.35;text-align:center;margin:8px 0 20px}.visual{font-size:48px;text-align:center}.progress{display:flex;align-items:center;gap:10px;font-weight:850}.bar{width:180px;height:10px;background:#eeeaf5;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;width:0;background:#ffb347;border-radius:inherit}.win{position:absolute;inset:0;background:rgba(255,255,255,.95);display:grid;place-items:center;text-align:center;z-index:5}.win .big{font-size:92px}.win strong{display:block;font-size:32px}.win button{margin-top:18px;border:0;background:#6c5ce7;color:#fff;border-radius:18px;min-height:54px;padding:12px 22px;font-weight:900;font-size:19px}.stats{background:#fff;border:2px solid rgba(47,43,74,.09);border-radius:26px;padding:18px;margin-top:18px}.stat{display:flex;justify-content:space-between;gap:20px;padding:12px 2px;border-bottom:1px solid rgba(47,43,74,.09)}.note{color:#746f8d;line-height:1.45}.danger{width:100%;border:2px solid #ffd2d8;background:#fff5f6;color:#a83343;border-radius:16px;min-height:48px;font-weight:850}
-@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+:root{font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#173a5e;background:#eaf8ff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,#ffffff 0,rgba(255,255,255,.7) 16%,transparent 38%),linear-gradient(180deg,#ccefff 0%,#dfeaff 42%,#f4fbff 100%);overflow-x:hidden}body:before{content:"";position:fixed;inset:-80px 0 0;pointer-events:none;z-index:0;opacity:.78;background-image:radial-gradient(circle,#fff 0 3px,transparent 3.5px),radial-gradient(circle,#fff 0 2px,transparent 2.5px),radial-gradient(circle,rgba(255,255,255,.9) 0 4px,transparent 4.5px);background-size:92px 92px,135px 135px,180px 180px;background-position:15px 5px,58px 22px,92px 45px;animation:snowfall 16s linear infinite}.app{position:relative;z-index:1}button{font:inherit;color:inherit;cursor:pointer}.app{max-width:980px;margin:auto;padding:max(20px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(18px,env(safe-area-inset-left))}.hidden{display:none!important}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:900;color:#3d7fb3}.top h1,.top h2{margin:3px 0 0;font-size:clamp(30px,5vw,50px);line-height:1}.stars{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.9);border:2px solid #bfe9ff;border-radius:20px;padding:10px 15px;font-size:24px;font-weight:900;box-shadow:0 7px 0 rgba(47,43,74,.06)}.hero{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(226,247,255,.92));border:2px solid #bfe9ff;border-radius:26px;padding:18px 20px;margin-bottom:18px;box-shadow:0 10px 0 rgba(71,132,175,.08)}.hero .fox{font-size:58px;filter:drop-shadow(0 4px 4px rgba(46,100,135,.12))}.hero strong{font-size:21px}.hero small{display:block;color:#746f8d;margin-top:3px}.level{background:#dff5ff;color:#3075a6;font-weight:900;border-radius:999px;padding:9px 13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.game{border:0;border-radius:28px;min-height:280px;padding:20px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 9px 0 rgba(47,43,74,.07)}.game:active,.choice:active,.obj:active{transform:translateY(4px)}.feed{background:linear-gradient(160deg,#e8faff,#cfeeff)}.bond{background:linear-gradient(160deg,#e9e9ff,#d8e5ff)}.treasure{background:linear-gradient(160deg,#e2f8ff,#d8f1f6)}.art{font-size:68px}.game span{font-size:12px;font-weight:900;letter-spacing:.1em;opacity:.65}.game strong{display:block;font-size:25px;margin-top:5px}.game small{display:block;color:#4e6b82;font-size:15px;margin-top:5px}.footer{display:flex;justify-content:space-between;gap:10px;margin-top:18px}.soft,.homebtn{border:2px solid #bfe4f6;background:rgba(255,255,255,.92);border-radius:17px;min-height:48px;padding:10px 15px;font-weight:850}.homebtn{width:52px;padding:0;font-size:23px}.stage{min-height:560px;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(229,247,255,.95));border:2px solid #bfe9ff;border-radius:32px;padding:26px;box-shadow:0 11px 0 rgba(47,43,74,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.character{font-size:90px}.prompt{font-size:clamp(26px,4vw,39px);font-weight:950;text-align:center;margin:12px 0}.sub{font-size:18px;color:#746f8d;margin:-4px 0 18px;text-align:center}.basket{width:min(100%,530px);min-height:95px;border:3px dashed #8fd7f8;background:#eefbff;border-radius:22px;padding:10px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:18px}.basket:empty:after{content:"Tap snowflakes to feed Snowy";color:#4a7c99;font-weight:800}.objs{width:min(100%,610px);display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.obj{border:0;min-height:68px;border-radius:18px;background:#edfaff;box-shadow:0 5px 0 #b9e4f7;font-size:38px}.obj.used{opacity:.2;box-shadow:none}.eq{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:clamp(38px,7vw,68px);font-weight:950;margin:10px 0 24px}.tile{background:#e7f4ff;border-radius:20px;min-width:75px;text-align:center;padding:8px}.mystery{background:#dff7ff;color:#286b98}.choices{display:grid;grid-template-columns:repeat(3,minmax(95px,155px));gap:14px}.choice{border:0;min-height:94px;border-radius:22px;background:#e8f6ff;box-shadow:0 6px 0 #c4e5f6;font-size:39px;font-weight:950}.choice.bad{background:#fff0f1;animation:shake .25s}.story{width:min(100%,620px);background:#eaf7ff;border-radius:22px;padding:17px 19px;font-size:21px;font-weight:800;line-height:1.35;text-align:center;margin:8px 0 20px}.visual{font-size:48px;text-align:center}.progress{display:flex;align-items:center;gap:10px;font-weight:850}.bar{width:180px;height:10px;background:#dcebf4;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;width:0;background:#65bceb;border-radius:inherit}.win{position:absolute;inset:0;background:rgba(239,250,255,.97);display:grid;place-items:center;text-align:center;z-index:5}.win .big{font-size:92px}.win strong{display:block;font-size:32px}.win button{margin-top:18px;border:0;background:#4d9ed0;color:#fff;border-radius:18px;min-height:54px;padding:12px 22px;font-weight:900;font-size:19px}.stats{background:#fff;border:2px solid rgba(47,43,74,.09);border-radius:26px;padding:18px;margin-top:18px}.stat{display:flex;justify-content:space-between;gap:20px;padding:12px 2px;border-bottom:1px solid rgba(47,43,74,.09)}.note{color:#746f8d;line-height:1.45}.danger{width:100%;border:2px solid #ffd2d8;background:#fff5f6;color:#a83343;border-radius:16px;min-height:48px;font-weight:850}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}@keyframes snowfall{from{background-position:15px -90px,58px -135px,92px -180px}to{background-position:45px 720px,88px 865px,122px 980px}}
 @media(max-width:760px){.grid{grid-template-columns:1fr}.game{min-height:150px;display:grid;grid-template-columns:95px 1fr;align-items:center}.art{font-size:52px}.hero{grid-template-columns:auto 1fr}.level{grid-column:1/3;justify-self:start}.stage{min-height:520px;padding:19px}.objs{grid-template-columns:repeat(4,1fr)}.footer{flex-wrap:wrap}.progress{width:100%}.bar{flex:1}}
 @media(max-width:430px){.game{grid-template-columns:75px 1fr}.art{font-size:42px}.game strong{font-size:21px}.objs{grid-template-columns:repeat(3,1fr)}.choices{grid-template-columns:repeat(3,1fr)}.choice{min-width:0;font-size:34px}.character{font-size:74px}.prompt{font-size:27px}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition:none!important}}
@@ -23,18 +23,18 @@
 <body>
 <main class="app">
 <section id="home">
-<header class="top"><div><div class="eyebrow">MATH ADVENTURE</div><h1>Choose a quest!</h1></div><div class="stars">⭐ <b id="starsHome">0</b></div></header>
-<div class="hero"><div class="fox">🦊</div><div><strong id="hello">Once upon a time, a little math adventure began...</strong><small>Choose a quest and help the kingdom.</small></div><div class="level">Level <b id="level">1</b></div></div>
+<header class="top"><div><div class="eyebrow">SNOW KINGDOM MATH</div><h1>Choose a snowy quest!</h1></div><div class="stars">⭐ <b id="starsHome">0</b></div></header>
+<div class="hero"><div class="fox">🏰❄️</div><div><strong id="hello">Welcome to the magical Snow Kingdom!</strong><small>Help light the ice castle with every answer.</small></div><div class="level">Level <b id="level">1</b></div></div>
 <div class="grid">
-<button class="game feed" data-game="feed"><div class="art">🐰🥕</div><div><span>COUNTING</span><strong>Feed the Bunny</strong><small>Count the carrots!</small></div></button>
-<button class="game bond" data-game="bond"><div class="art">🤖💎</div><div><span>NUMBER BONDS</span><strong>Crystal Castle</strong><small>Wake the magic crystals.</small></div></button>
-<button class="game treasure" data-game="treasure"><div class="art">🏴‍☠️💰</div><div><span>+ AND −</span><strong>Treasure Hunt</strong><small>Follow the enchanted trail.</small></div></button>
+<button class="game feed" data-game="feed"><div class="art">⛄❄️</div><div><span>COUNTING</span><strong>Feed the Snowman</strong><small>Count the magic snowflakes!</small></div></button>
+<button class="game bond" data-game="bond"><div class="art">🏰💎</div><div><span>NUMBER BONDS</span><strong>Ice Crystal Castle</strong><small>Light the frozen crystal towers.</small></div></button>
+<button class="game treasure" data-game="treasure"><div class="art">👑❄️</div><div><span>+ AND −</span><strong>Frozen Treasure Trail</strong><small>Find gems across the snowy kingdom.</small></div></button>
 </div>
 <div class="footer"><button id="sound" class="soft">🔊 Voice on</button><button id="grown" class="soft">⚙️ Grown-ups</button></div>
 <div id="stats" class="stats hidden"><div class="stat"><span>Total stars</span><b id="sStars">0</b></div><div class="stat"><span>Counting correct</span><b id="sFeed">0</b></div><div class="stat"><span>Number bonds correct</span><b id="sBond">0</b></div><div class="stat"><span>Add/subtract correct</span><b id="sTreasure">0</b></div><p class="note">Each quest has five stages. Stage 1 is intentionally very easy, then the numbers and operations become harder step by step. Mastery unlocks a higher five-stage ladder. Progress stays on this device only.</p><button id="reset" class="danger">Reset progress</button></div>
 </section>
 <section id="play" class="hidden">
-<header class="top"><button id="back" class="homebtn">🏠</button><div style="flex:1"><div id="label" class="eyebrow">COUNTING</div><h2 id="title">Feed the Bunny</h2></div><div class="stars">⭐ <b id="starsPlay">0</b></div></header>
+<header class="top"><button id="back" class="homebtn">🏠</button><div style="flex:1"><div id="label" class="eyebrow">COUNTING</div><h2 id="title">Feed the Snowman</h2></div><div class="stars">⭐ <b id="starsPlay">0</b></div></header>
 <div id="stage" class="stage"></div>
 <div class="footer"><div class="progress"><span id="round">Stage 1 of 5</span><span class="bar"><i id="fill"></i></span></div><button id="hear" class="soft">🔊 Hear again</button></div>
 </section>
@@ -54,9 +54,9 @@ function refresh(){
   id('level').textContent=Math.max(1,Math.floor((p.feed+p.bond+p.treasure)/10)+1);
   id('sound').textContent=p.sound?'🔊 Story voice on':'🔇 Story voice off';
   id('sStars').textContent=p.stars+' ⭐';id('sFeed').textContent=p.feed;id('sBond').textContent=p.bond;id('sTreasure').textContent=p.treasure;
-  if(p.stars>=30)id('hello').textContent='The kingdom knows a true Math Hero!';
-  else if(p.stars>=15)id('hello').textContent='Your adventures are becoming legendary!';
-  else id('hello').textContent='Once upon a time, a little math adventure began...';
+  if(p.stars>=30)id('hello').textContent='The Ice Castle shines for its true Math Hero!';
+  else if(p.stars>=15)id('hello').textContent='The Snow Kingdom sparkles brighter because of you!';
+  else id('hello').textContent='Welcome to the magical Snow Kingdom!';
 }
 function pickVoice(){
   if(!('speechSynthesis' in window))return;
@@ -95,7 +95,7 @@ function mastery(g){return p[g]>=25?2:p[g]>=10?1:0}
 function band(table,g){return table[mastery(g)][round-1]}
 function showPlay(g){
   game=g;round=1;id('home').classList.add('hidden');id('play').classList.remove('hidden');
-  var m={feed:['COUNTING','Feed the Bunny'],bond:['NUMBER BONDS','Crystal Castle'],treasure:['+ AND −','Treasure Hunt']};
+  var m={feed:['COUNTING','Feed the Snowman'],bond:['NUMBER BONDS','Ice Crystal Castle'],treasure:['+ AND −','Frozen Treasure Trail']};
   id('label').textContent=m[g][0];id('title').textContent=m[g][1];render();
 }
 function chrome(){id('round').textContent='Stage '+round+' of 5';id('fill').style.width=((round-1)/4*100)+'%'}
@@ -106,27 +106,27 @@ function win(msg){
   o.innerHTML='<div><div class="big">'+(done?'🏆':'⭐')+'</div><strong>'+(done?'The quest is complete!':'Splendid!')+'</strong><div>'+msg+'</div><button>'+(done?'Choose another quest':'On to the next stage')+'</button></div>';
   o.querySelector('button').onclick=function(){if(done){id('play').classList.add('hidden');id('home').classList.remove('hidden');game=null}else{round++;render()}};
   id('stage').appendChild(o);
-  speak(done?'Hooray! Your quest is complete. The kingdom is one star brighter!':'Splendid, brave explorer! You found the answer.');
+  speak(done?'Hooray! Your snowy quest is complete. The Ice Castle is shining brighter!':'Wonderful, snow explorer! You found the answer.');
 }
-function wrong(btn){btn.classList.remove('bad');void btn.offsetWidth;btn.classList.add('bad');speak('Not quite, brave explorer. Have another try.')}
+function wrong(btn){btn.classList.remove('bad');void btn.offsetWidth;btn.classList.add('bad');speak('Not quite, snow explorer. Try once more.')}
 function render(){chrome();if(game==='feed')feed();if(game==='bond')bond();if(game==='treasure')treasure()}
 function feed(){
   var tables=[[[1,2],[3,3],[4,4],[5,6],[7,8]],[[2,3],[4,5],[6,7],[8,10],[11,12]],[[3,4],[5,7],[8,10],[11,13],[14,15]]];
   var r=band(tables,'feed'),target=rand(r[0],r[1]),n=target+(round===1?2:rand(2,4)),sel=0,s=id('stage');
-  var visible='In the enchanted garden, Little Bunny is hungry.<br>Can you give Bunny <b>'+target+'</b> carrot'+(target===1?'':'s')+'?';
-  s.innerHTML='<div class="character">🐰</div><div class="prompt">'+visible+'</div><div id="basket" class="basket"></div><div id="objs" class="objs"></div>';
+  var visible='Snowy the snowman is hungry for magic!<br>Feed Snowy <b>'+target+'</b> snowflake'+(target===1?'':'s')+'.';
+  s.innerHTML='<div class="character">⛄</div><div class="prompt">'+visible+'</div><div id="basket" class="basket"></div><div id="objs" class="objs"></div>';
   for(var i=0;i<n;i++){
-    var b=document.createElement('button');b.className='obj';b.textContent='🥕';
+    var b=document.createElement('button');b.className='obj';b.textContent='❄️';
     b.onclick=function(){
       if(this.classList.contains('used'))return;
       this.classList.add('used');sel++;
-      var x=document.createElement('span');x.style.fontSize='38px';x.textContent='🥕';id('basket').appendChild(x);
-      if(sel===target)win('Bunny has '+target+' lovely carrot'+(target===1?'':'s')+'.');
-      else if(sel>target){speak('Oh dear! Bunny has too many carrots. Let us begin again.');setTimeout(feed,750)}
+      var x=document.createElement('span');x.style.fontSize='38px';x.textContent='❄️';id('basket').appendChild(x);
+      if(sel===target)win('Snowy ate '+target+' magic snowflake'+(target===1?'':'s')+'.');
+      else if(sel>target){speak('Oh! Snowy has too many snowflakes. Let us begin again.');setTimeout(feed,750)}
     };
     id('objs').appendChild(b);
   }
-  speak('In the enchanted garden, Little Bunny is hungry. Can you give Bunny '+numWord(target)+' carrot'+(target===1?'':'s')+'?');
+  speak('Snowy the snowman is hungry for magic. Feed Snowy '+numWord(target)+' snowflake'+(target===1?'':'s')+'.');
 }
 function choices(answer,place,msg){
   var count=round===1?2:3,vals=[answer],spread=round<=2?2:3;
@@ -138,9 +138,9 @@ function bond(){
   var tables=[[[2,3],[4,4],[5,5],[6,7],[8,10]],[[3,4],[5,6],[7,8],[9,10],[11,12]],[[4,5],[6,7],[8,10],[11,12],[13,15]]];
   var r=band(tables,'bond'),total=rand(r[0],r[1]),a=rand(1,total-1),ans=total-a,s=id('stage');
   var known='💎'.repeat(Math.min(a,10)),missing=round<=2?' ✨?':'';
-  s.innerHTML='<div class="character">🏰</div><div class="prompt">The Crystal Castle needs <b>'+total+'</b> shining crystals.</div><div class="sub">'+a+' '+(a===1?'is':'are')+' glowing already. How many more must we find?</div><div class="visual">'+known+missing+'</div><div class="eq"><span class="tile">'+a+'</span><span>+</span><span class="tile mystery">?</span><span>=</span><span class="tile">'+total+'</span></div><div id="answers" class="choices"></div>';
+  s.innerHTML='<div class="character">🏰❄️</div><div class="prompt">The Ice Crystal Castle needs <b>'+total+'</b> shining crystals.</div><div class="sub">'+a+' '+(a===1?'is':'are')+' glowing already. How many more must we find?</div><div class="visual">'+known+missing+'</div><div class="eq"><span class="tile">'+a+'</span><span>+</span><span class="tile mystery">?</span><span>=</span><span class="tile">'+total+'</span></div><div id="answers" class="choices"></div>';
   choices(ans,id('answers'),a+' and '+ans+' make '+total+'.');
-  speak('The Crystal Castle needs '+numWord(total)+' shining crystals. '+numWord(a)+' '+(a===1?'is':'are')+' glowing already. How many more must we find?');
+  speak('The Ice Crystal Castle needs '+numWord(total)+' shining crystals. '+numWord(a)+' '+(a===1?'is':'are')+' glowing already. How many more must we find?');
 }
 function additionFor(maxTotal){var total=rand(2,maxTotal),a=rand(1,total-1),b=total-a;return [a,b,total]}
 function treasure(){
@@ -148,16 +148,16 @@ function treasure(){
   var max=maxByTier[round-1],allowSub=round>=4,sub=allowSub&&Math.random()<(round===4?.45:.65),a,b,ans,story,voice,visual,msg;
   if(sub){
     a=rand(Math.max(3,Math.floor(max*.65)),max);b=rand(1,Math.max(1,a-1));ans=a-b;
-    story='At the old castle, Pirate Pip has <b>'+a+'</b> sparkling gems. A cheeky parrot flies away with <b>'+b+'</b>. How many gems are left?';
-    voice='At the old castle, Pirate Pip has '+numWord(a)+' sparkling gems. A cheeky parrot flies away with '+numWord(b)+'. How many gems are left?';
-    visual='💎'.repeat(Math.min(a,10))+' 🦜';msg=a+' minus '+b+' is '+ans+'.';
+    story='At the frozen palace, the Snow Keeper has <b>'+a+'</b> sparkling ice gems. A playful winter bird carries away <b>'+b+'</b>. How many gems are left?';
+    voice='At the frozen palace, the Snow Keeper has '+numWord(a)+' sparkling ice gems. A playful winter bird carries away '+numWord(b)+'. How many gems are left?';
+    visual='💎'.repeat(Math.min(a,10))+' 🐦❄️';msg=a+' minus '+b+' is '+ans+'.';
   }else{
     var pair=additionFor(max);a=pair[0];b=pair[1];ans=pair[2];
-    story='Along the enchanted trail, Pirate Pip has <b>'+a+'</b> sparkling gem'+(a===1?'':'s')+'. He finds <b>'+b+'</b> more. How many gems does he have now?';
-    voice='Along the enchanted trail, Pirate Pip has '+numWord(a)+' sparkling gem'+(a===1?'':'s')+'. He finds '+numWord(b)+' more. How many gems does he have now?';
+    story='Along the snowy trail, the Snow Keeper has <b>'+a+'</b> sparkling ice gem'+(a===1?'':'s')+'. Then <b>'+b+'</b> more appear in the snow. How many gems are there now?';
+    voice='Along the snowy trail, the Snow Keeper has '+numWord(a)+' sparkling ice gem'+(a===1?'':'s')+'. Then '+numWord(b)+' more appear in the snow. How many gems are there now?';
     visual='💎'.repeat(Math.min(a,8))+' ➕ '+'💎'.repeat(Math.min(b,8));msg=a+' plus '+b+' is '+ans+'.';
   }
-  var s=id('stage');s.innerHTML='<div class="character">🏴‍☠️</div><div class="visual">'+visual+'</div><div class="story">'+story+'</div><div id="answers" class="choices"></div>';
+  var s=id('stage');s.innerHTML='<div class="character">👑❄️</div><div class="visual">'+visual+'</div><div class="story">'+story+'</div><div id="answers" class="choices"></div>';
   choices(ans,id('answers'),msg);speak(voice);
 }
 document.querySelectorAll('[data-game]').forEach(function(b){b.onclick=function(){showPlay(b.getAttribute('data-game'))}});
