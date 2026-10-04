@@ -23,47 +23,147 @@
 <body>
 <main class="app">
 <section id="home">
-<header class="top"><div><div class="eyebrow">MATH ADVENTURE</div><h1>Choose a game!</h1></div><div class="stars">⭐ <b id="starsHome">0</b></div></header>
-<div class="hero"><div class="fox">🦊</div><div><strong id="hello">Ready for an adventure?</strong><small>Play a little, learn a lot.</small></div><div class="level">Level <b id="level">1</b></div></div>
+<header class="top"><div><div class="eyebrow">MATH ADVENTURE</div><h1>Choose a quest!</h1></div><div class="stars">⭐ <b id="starsHome">0</b></div></header>
+<div class="hero"><div class="fox">🦊</div><div><strong id="hello">Once upon a time, a little math adventure began...</strong><small>Choose a quest and help the kingdom.</small></div><div class="level">Level <b id="level">1</b></div></div>
 <div class="grid">
 <button class="game feed" data-game="feed"><div class="art">🐰🥕</div><div><span>COUNTING</span><strong>Feed the Bunny</strong><small>Count the carrots!</small></div></button>
-<button class="game bond" data-game="bond"><div class="art">🤖💎</div><div><span>NUMBER BONDS</span><strong>Crystal Machine</strong><small>Find the missing part.</small></div></button>
-<button class="game treasure" data-game="treasure"><div class="art">🏴‍☠️💰</div><div><span>+ AND −</span><strong>Treasure Hunt</strong><small>Solve the gem story.</small></div></button>
+<button class="game bond" data-game="bond"><div class="art">🤖💎</div><div><span>NUMBER BONDS</span><strong>Crystal Castle</strong><small>Wake the magic crystals.</small></div></button>
+<button class="game treasure" data-game="treasure"><div class="art">🏴‍☠️💰</div><div><span>+ AND −</span><strong>Treasure Hunt</strong><small>Follow the enchanted trail.</small></div></button>
 </div>
 <div class="footer"><button id="sound" class="soft">🔊 Voice on</button><button id="grown" class="soft">⚙️ Grown-ups</button></div>
-<div id="stats" class="stats hidden"><div class="stat"><span>Total stars</span><b id="sStars">0</b></div><div class="stat"><span>Counting correct</span><b id="sFeed">0</b></div><div class="stat"><span>Number bonds correct</span><b id="sBond">0</b></div><div class="stat"><span>Add/subtract correct</span><b id="sTreasure">0</b></div><p class="note">Difficulty increases gently as correct answers build up. Progress stays on this device only.</p><button id="reset" class="danger">Reset progress</button></div>
+<div id="stats" class="stats hidden"><div class="stat"><span>Total stars</span><b id="sStars">0</b></div><div class="stat"><span>Counting correct</span><b id="sFeed">0</b></div><div class="stat"><span>Number bonds correct</span><b id="sBond">0</b></div><div class="stat"><span>Add/subtract correct</span><b id="sTreasure">0</b></div><p class="note">Each quest has five stages. Stage 1 is intentionally very easy, then the numbers and operations become harder step by step. Mastery unlocks a higher five-stage ladder. Progress stays on this device only.</p><button id="reset" class="danger">Reset progress</button></div>
 </section>
 <section id="play" class="hidden">
 <header class="top"><button id="back" class="homebtn">🏠</button><div style="flex:1"><div id="label" class="eyebrow">COUNTING</div><h2 id="title">Feed the Bunny</h2></div><div class="stars">⭐ <b id="starsPlay">0</b></div></header>
 <div id="stage" class="stage"></div>
-<div class="footer"><div class="progress"><span id="round">1 of 5</span><span class="bar"><i id="fill"></i></span></div><button id="hear" class="soft">🔊 Hear again</button></div>
+<div class="footer"><div class="progress"><span id="round">Stage 1 of 5</span><span class="bar"><i id="fill"></i></span></div><button id="hear" class="soft">🔊 Hear again</button></div>
 </section>
 </main>
 <script>
 (function(){
 var key='mathAdventureV1',def={stars:0,feed:0,bond:0,treasure:0,sound:true},p;
 try{p=Object.assign({},def,JSON.parse(localStorage.getItem(key)||'{}'))}catch(e){p=Object.assign({},def)}
-var game=null,round=1,lastSpeech='';
+var game=null,round=1,lastSpeech='',chosenVoice=null;
+var words=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
+
 function id(x){return document.getElementById(x)}
+function numWord(n){return words[n]||String(n)}
 function save(){localStorage.setItem(key,JSON.stringify(p));refresh()}
-function refresh(){id('starsHome').textContent=p.stars;id('starsPlay').textContent=p.stars;id('level').textContent=Math.max(1,Math.floor((p.feed+p.bond+p.treasure)/8)+1);id('sound').textContent=p.sound?'🔊 Voice on':'🔇 Voice off';id('sStars').textContent=p.stars+' ⭐';id('sFeed').textContent=p.feed;id('sBond').textContent=p.bond;id('sTreasure').textContent=p.treasure;if(p.stars>=20)id('hello').textContent='Math Explorer!';else if(p.stars>=10)id('hello').textContent='Adventure badge unlocked!'}
-function speak(t){lastSpeech=t;if(!p.sound||!('speechSynthesis'in window))return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.rate=.86;u.pitch=1.12;u.lang='en-US';speechSynthesis.speak(u)}
+function refresh(){
+  id('starsHome').textContent=p.stars;id('starsPlay').textContent=p.stars;
+  id('level').textContent=Math.max(1,Math.floor((p.feed+p.bond+p.treasure)/10)+1);
+  id('sound').textContent=p.sound?'🔊 Story voice on':'🔇 Story voice off';
+  id('sStars').textContent=p.stars+' ⭐';id('sFeed').textContent=p.feed;id('sBond').textContent=p.bond;id('sTreasure').textContent=p.treasure;
+  if(p.stars>=30)id('hello').textContent='The kingdom knows a true Math Hero!';
+  else if(p.stars>=15)id('hello').textContent='Your adventures are becoming legendary!';
+  else id('hello').textContent='Once upon a time, a little math adventure began...';
+}
+function pickVoice(){
+  if(!('speechSynthesis' in window))return;
+  var vs=speechSynthesis.getVoices().filter(function(v){return /^en[-_]/i.test(v.lang)});
+  if(!vs.length){chosenVoice=null;return}
+  var favourite=['Samantha','Ava','Serena','Daniel','Martha','Karen','Moira','Tessa','Fiona'];
+  function score(v){
+    var s=0,name=v.name||'',lang=v.lang||'';
+    if(v.localService)s+=2;
+    if(/^en-GB/i.test(lang))s+=4;else if(/^en-AU/i.test(lang))s+=3;else if(/^en-US/i.test(lang))s+=2;
+    if(/premium|enhanced|natural|siri/i.test(name))s+=8;
+    favourite.forEach(function(n,i){if(name.toLowerCase().indexOf(n.toLowerCase())>=0)s+=7-i*.2});
+    if(/zarvox|trinoids|whisper|bad news|good news|bells|boing|bubbles|cellos|organ|superstar/i.test(name))s-=30;
+    return s;
+  }
+  vs.sort(function(a,b){return score(b)-score(a)});
+  chosenVoice=vs[0]||null;
+}
+function speak(t){
+  lastSpeech=t;
+  if(!p.sound||!('speechSynthesis'in window))return;
+  pickVoice();speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(t);
+  if(chosenVoice){u.voice=chosenVoice;u.lang=chosenVoice.lang}else{u.lang='en-GB'}
+  u.rate=.96;u.pitch=1.0;u.volume=1.0;
+  speechSynthesis.speak(u);
+}
+if('speechSynthesis'in window){
+  pickVoice();
+  if(typeof speechSynthesis.addEventListener==='function')speechSynthesis.addEventListener('voiceschanged',pickVoice);
+  else speechSynthesis.onvoiceschanged=pickVoice;
+}
 function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a}
 function mix(a){return a.sort(function(){return Math.random()-.5})}
-function diff(g){return p[g]>=20?3:p[g]>=8?2:1}
-function showPlay(g){game=g;round=1;id('home').classList.add('hidden');id('play').classList.remove('hidden');var m={feed:['COUNTING','Feed the Bunny'],bond:['NUMBER BONDS','Crystal Machine'],treasure:['+ AND −','Treasure Hunt']};id('label').textContent=m[g][0];id('title').textContent=m[g][1];render()}
-function chrome(){id('round').textContent=round+' of 5';id('fill').style.width=((round-1)/5*100)+'%'}
-function win(msg){p.stars++;p[game]++;save();var done=round>=5;var o=document.createElement('div');o.className='win';o.innerHTML='<div><div class="big">'+(done?'🏆':'⭐')+'</div><strong>'+(done?'Adventure complete!':'Great job!')+'</strong><div>'+msg+'</div><button>'+(done?'Choose another game':'Next round')+'</button></div>';o.querySelector('button').onclick=function(){if(done){id('play').classList.add('hidden');id('home').classList.remove('hidden');game=null}else{round++;render()}};id('stage').appendChild(o);speak(done?'Adventure complete! Great job!':'Great job! You earned a star!')}
-function wrong(btn){btn.classList.remove('bad');void btn.offsetWidth;btn.classList.add('bad');speak('Almost. Try again.')}
+function mastery(g){return p[g]>=25?2:p[g]>=10?1:0}
+function band(table,g){return table[mastery(g)][round-1]}
+function showPlay(g){
+  game=g;round=1;id('home').classList.add('hidden');id('play').classList.remove('hidden');
+  var m={feed:['COUNTING','Feed the Bunny'],bond:['NUMBER BONDS','Crystal Castle'],treasure:['+ AND −','Treasure Hunt']};
+  id('label').textContent=m[g][0];id('title').textContent=m[g][1];render();
+}
+function chrome(){id('round').textContent='Stage '+round+' of 5';id('fill').style.width=((round-1)/4*100)+'%'}
+function win(msg){
+  p.stars++;p[game]++;save();
+  var done=round>=5,o=document.createElement('div');
+  o.className='win';
+  o.innerHTML='<div><div class="big">'+(done?'🏆':'⭐')+'</div><strong>'+(done?'The quest is complete!':'Splendid!')+'</strong><div>'+msg+'</div><button>'+(done?'Choose another quest':'On to the next stage')+'</button></div>';
+  o.querySelector('button').onclick=function(){if(done){id('play').classList.add('hidden');id('home').classList.remove('hidden');game=null}else{round++;render()}};
+  id('stage').appendChild(o);
+  speak(done?'Hooray! Your quest is complete. The kingdom is one star brighter!':'Splendid, brave explorer! You found the answer.');
+}
+function wrong(btn){btn.classList.remove('bad');void btn.offsetWidth;btn.classList.add('bad');speak('Not quite, brave explorer. Have another try.')}
 function render(){chrome();if(game==='feed')feed();if(game==='bond')bond();if(game==='treasure')treasure()}
-function feed(){var d=diff('feed'),max=d===1?7:d===2?10:15,target=rand(2,max),n=Math.max(10,target+rand(2,5)),sel=0,s=id('stage');s.innerHTML='<div class="character">🐰</div><div class="prompt">Feed Bunny <b>'+target+'</b> carrots!</div><div id="basket" class="basket"></div><div id="objs" class="objs"></div>';for(var i=0;i<n;i++){var b=document.createElement('button');b.className='obj';b.textContent='🥕';b.onclick=function(){if(this.classList.contains('used'))return;this.classList.add('used');sel++;var x=document.createElement('span');x.style.fontSize='38px';x.textContent='🥕';id('basket').appendChild(x);if(sel===target)win('You counted '+target+' carrots.');else if(sel>target){speak('Too many. Let us try again.');setTimeout(feed,650)}};id('objs').appendChild(b)}speak('Feed Bunny '+target+' carrots.')}
-function choices(answer,place,msg){var vals=[answer];while(vals.length<3){var v=Math.max(0,answer+rand(-3,3));if(vals.indexOf(v)<0)vals.push(v)}mix(vals);vals.forEach(function(v){var b=document.createElement('button');b.className='choice';b.textContent=v;b.onclick=function(){if(v===answer)win(msg);else wrong(b)};place.appendChild(b)})}
-function bond(){var d=diff('bond'),total=d===1?rand(5,10):d===2?rand(8,12):rand(10,15),a=rand(1,total-1),ans=total-a,s=id('stage');s.innerHTML='<div class="character">🤖</div><div class="prompt">Power the crystal machine!</div><div class="sub">How many crystals are missing?</div><div class="eq"><span class="tile">'+a+'</span><span>+</span><span class="tile mystery">?</span><span>=</span><span class="tile">'+total+'</span></div><div id="answers" class="choices"></div>';choices(ans,id('answers'),a+' and '+ans+' make '+total+'.');speak(a+' plus what makes '+total+'?')}
-function treasure(){var d=diff('treasure'),sub=d>1&&Math.random()>.48,a,b,ans,story,visual,msg;if(sub){a=rand(4,d===3?15:10);b=rand(1,a-1);ans=a-b;story='Pirate Pip found <b>'+a+'</b> gems. A parrot took <b>'+b+'</b>. How many are left?';visual='💎'.repeat(Math.min(a,9))+' 🦜';msg=a+' minus '+b+' is '+ans+'.'}else{a=rand(1,d===1?5:d===2?8:10);b=rand(1,d===1?5:d===2?8:10);ans=a+b;story='Pirate Pip has <b>'+a+'</b> gems and finds <b>'+b+'</b> more. How many now?';visual='💎'.repeat(Math.min(a,7))+' ➕ '+'💎'.repeat(Math.min(b,7));msg=a+' plus '+b+' is '+ans+'.'}var s=id('stage');s.innerHTML='<div class="character">🏴‍☠️</div><div class="visual">'+visual+'</div><div class="story">'+story+'</div><div id="answers" class="choices"></div>';choices(ans,id('answers'),msg);speak(story.replace(/<[^>]+>/g,''))}
+function feed(){
+  var tables=[[[1,2],[3,3],[4,4],[5,6],[7,8]],[[2,3],[4,5],[6,7],[8,10],[11,12]],[[3,4],[5,7],[8,10],[11,13],[14,15]]];
+  var r=band(tables,'feed'),target=rand(r[0],r[1]),n=target+(round===1?2:rand(2,4)),sel=0,s=id('stage');
+  var visible='In the enchanted garden, Little Bunny is hungry.<br>Can you give Bunny <b>'+target+'</b> carrot'+(target===1?'':'s')+'?';
+  s.innerHTML='<div class="character">🐰</div><div class="prompt">'+visible+'</div><div id="basket" class="basket"></div><div id="objs" class="objs"></div>';
+  for(var i=0;i<n;i++){
+    var b=document.createElement('button');b.className='obj';b.textContent='🥕';
+    b.onclick=function(){
+      if(this.classList.contains('used'))return;
+      this.classList.add('used');sel++;
+      var x=document.createElement('span');x.style.fontSize='38px';x.textContent='🥕';id('basket').appendChild(x);
+      if(sel===target)win('Bunny has '+target+' lovely carrot'+(target===1?'':'s')+'.');
+      else if(sel>target){speak('Oh dear! Bunny has too many carrots. Let us begin again.');setTimeout(feed,750)}
+    };
+    id('objs').appendChild(b);
+  }
+  speak('In the enchanted garden, Little Bunny is hungry. Can you give Bunny '+numWord(target)+' carrot'+(target===1?'':'s')+'?');
+}
+function choices(answer,place,msg){
+  var count=round===1?2:3,vals=[answer],spread=round<=2?2:3;
+  while(vals.length<count){var v=Math.max(0,answer+rand(-spread,spread));if(v!==answer&&vals.indexOf(v)<0)vals.push(v)}
+  mix(vals);
+  vals.forEach(function(v){var b=document.createElement('button');b.className='choice';b.textContent=v;b.onclick=function(){if(v===answer)win(msg);else wrong(b)};place.appendChild(b)});
+}
+function bond(){
+  var tables=[[[2,3],[4,4],[5,5],[6,7],[8,10]],[[3,4],[5,6],[7,8],[9,10],[11,12]],[[4,5],[6,7],[8,10],[11,12],[13,15]]];
+  var r=band(tables,'bond'),total=rand(r[0],r[1]),a=rand(1,total-1),ans=total-a,s=id('stage');
+  var known='💎'.repeat(Math.min(a,10)),missing=round<=2?' ✨?':'';
+  s.innerHTML='<div class="character">🏰</div><div class="prompt">The Crystal Castle needs <b>'+total+'</b> shining crystals.</div><div class="sub">'+a+' '+(a===1?'is':'are')+' glowing already. How many more must we find?</div><div class="visual">'+known+missing+'</div><div class="eq"><span class="tile">'+a+'</span><span>+</span><span class="tile mystery">?</span><span>=</span><span class="tile">'+total+'</span></div><div id="answers" class="choices"></div>';
+  choices(ans,id('answers'),a+' and '+ans+' make '+total+'.');
+  speak('The Crystal Castle needs '+numWord(total)+' shining crystals. '+numWord(a)+' '+(a===1?'is':'are')+' glowing already. How many more must we find?');
+}
+function additionFor(maxTotal){var total=rand(2,maxTotal),a=rand(1,total-1),b=total-a;return [a,b,total]}
+function treasure(){
+  var tier=mastery('treasure'),maxByTier=[[3,5,6,6,8],[5,7,9,10,12],[7,10,12,14,16]][tier];
+  var max=maxByTier[round-1],allowSub=round>=4,sub=allowSub&&Math.random()<(round===4?.45:.65),a,b,ans,story,voice,visual,msg;
+  if(sub){
+    a=rand(Math.max(3,Math.floor(max*.65)),max);b=rand(1,Math.max(1,a-1));ans=a-b;
+    story='At the old castle, Pirate Pip has <b>'+a+'</b> sparkling gems. A cheeky parrot flies away with <b>'+b+'</b>. How many gems are left?';
+    voice='At the old castle, Pirate Pip has '+numWord(a)+' sparkling gems. A cheeky parrot flies away with '+numWord(b)+'. How many gems are left?';
+    visual='💎'.repeat(Math.min(a,10))+' 🦜';msg=a+' minus '+b+' is '+ans+'.';
+  }else{
+    var pair=additionFor(max);a=pair[0];b=pair[1];ans=pair[2];
+    story='Along the enchanted trail, Pirate Pip has <b>'+a+'</b> sparkling gem'+(a===1?'':'s')+'. He finds <b>'+b+'</b> more. How many gems does he have now?';
+    voice='Along the enchanted trail, Pirate Pip has '+numWord(a)+' sparkling gem'+(a===1?'':'s')+'. He finds '+numWord(b)+' more. How many gems does he have now?';
+    visual='💎'.repeat(Math.min(a,8))+' ➕ '+'💎'.repeat(Math.min(b,8));msg=a+' plus '+b+' is '+ans+'.';
+  }
+  var s=id('stage');s.innerHTML='<div class="character">🏴‍☠️</div><div class="visual">'+visual+'</div><div class="story">'+story+'</div><div id="answers" class="choices"></div>';
+  choices(ans,id('answers'),msg);speak(voice);
+}
 document.querySelectorAll('[data-game]').forEach(function(b){b.onclick=function(){showPlay(b.getAttribute('data-game'))}});
 id('back').onclick=function(){if('speechSynthesis'in window)speechSynthesis.cancel();id('play').classList.add('hidden');id('home').classList.remove('hidden');game=null};
 id('hear').onclick=function(){speak(lastSpeech)};
-id('sound').onclick=function(){p.sound=!p.sound;save();if(p.sound)speak('Voice is on.');else if('speechSynthesis'in window)speechSynthesis.cancel()};
+id('sound').onclick=function(){p.sound=!p.sound;save();if(p.sound)speak('And so, the story voice returns.');else if('speechSynthesis'in window)speechSynthesis.cancel()};
 id('grown').onclick=function(){id('stats').classList.toggle('hidden')};
 id('reset').onclick=function(){if(confirm('Reset all Math Adventure progress on this iPad?')){p=Object.assign({},def);save()}};
 refresh();
