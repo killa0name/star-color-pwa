@@ -140,7 +140,7 @@ function wrong(btn){btn.classList.remove('bad');void btn.offsetWidth;btn.classLi
 function render(){chrome();if(game==='feed')feed();if(game==='bond')bond();if(game==='treasure')treasure()}
 function feed(){
   var tables=[[[1,2],[3,3],[4,4],[5,6],[7,8]],[[2,3],[4,5],[6,7],[8,10],[11,12]],[[3,4],[5,7],[8,10],[11,13],[14,15]]];
-  var r=band(tables,'feed'),target=rand(r[0],r[1]),n=target+(round===1?2:rand(2,4)),sel=0,s=id('stage');
+  var r=band(tables,'feed'),target=rand(r[0],r[1]),n=target+(round===1?2:rand(2,4)),sel=0,successPending=false,s=id('stage');
   var visible='Snowy the snowman is hungry for magic!<br>Feed Snowy <b>'+target+'</b> snowflake'+(target===1?'':'s')+'.';
   s.innerHTML='<div class="character">⛄</div><div class="prompt">'+visible+'</div><div id="basket" class="basket"></div><div id="objs" class="objs"></div>';
   for(var i=0;i<n;i++){
@@ -148,11 +148,15 @@ function feed(){
     b.onclick=function(){
       if(this.classList.contains('used')||this.dataset.busy==='1')return;
       var sourceBtn=this;sourceBtn.dataset.busy='1';sourceBtn.classList.add('used');animateTap(sourceBtn);sel++;
+      if(sel===target){Array.prototype.forEach.call(id('objs').querySelectorAll('button'),function(x){x.disabled=true})}
       if(sel>target){speak('Oops... Snowy has one snowflake too many. Let us gather the magic snowflakes again, nice and slowly.');setTimeout(feed,900);return}
       flyTokenToTarget(sourceBtn,id('basket'),'❄️',{duration:620,size:36,onComplete:function(){
         var x=document.createElement('span');x.style.fontSize='38px';x.textContent='❄️';x.className='tap-pop';id('basket').appendChild(x);
         var landed=id('basket').children.length;
-        if(sel===target&&landed===target)win('Snowy ate '+target+' magic snowflake'+(target===1?'':'s')+'.');
+        if(sel===target&&landed===target&&!successPending){
+          successPending=true;
+          requestAnimationFrame(function(){requestAnimationFrame(function(){setTimeout(function(){win('Snowy ate '+target+' magic snowflake'+(target===1?'':'s')+'.')},380)})});
+        }
       }});
     };
     id('objs').appendChild(b);
